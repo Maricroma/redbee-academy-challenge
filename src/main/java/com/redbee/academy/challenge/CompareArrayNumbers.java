@@ -1,5 +1,6 @@
 package com.redbee.academy.challenge;
 
+import java.util.ArrayList;
 import java.util.List;
 
 public class CompareArrayNumbers {
@@ -13,8 +14,30 @@ public class CompareArrayNumbers {
    * @return The result of a + b
    */
   public static List<Integer> max(List<Integer> a, List<Integer> b) {
-    //TODO: Implement me
-    return null;
+    
+    List<Integer> masterList = new ArrayList<>();
+    List<Integer> bigList = a;
+    List<Integer> smallList = b;
+
+    if(a.size() < b.size()) {
+      bigList = b;
+      smallList = a;
+    } 
+
+    for (int i = 0; i < bigList.size(); i++) {
+      if(i < smallList.size()) {
+        if(bigList.get(i) > smallList.get(i)) {
+          masterList.add(bigList.get(i));
+        } else {
+          masterList.add(smallList.get(i));
+        }
+      } else {
+        masterList.add(bigList.get(i));
+      }
+
+    }
+
+    return masterList;
   }
 
 
